@@ -17,6 +17,16 @@ public class Application {
             input = input.substring(newLineIndex + 2);
         }
         String[] numbers = input.split(delimeter);
+        for(String number : numbers) {
+            try {
+                int value = Integer.parseInt(number);
+                if(value < 0) {
+                    throw new IllegalArgumentException("음수는 입력할 수 없습니다.");
+                }
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("숫자가 아닌 값이 포함되어 있습니다.");
+            }
+        }
         int sum = 0;
         for(String number : numbers) {
             sum += Integer.parseInt(number);
