@@ -1,7 +1,21 @@
 package calculator;
 
+import camp.nextstep.edu.missionutils.Console;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        System.out.println("덧셈할 문자열을 입력해 주세요.");
+        String input = Console.readLine();
+        if(input == null || input.isEmpty()) {
+            System.out.println("0");
+            return;
+        }
+        String delimeter = "[,:]";
+        String[] numbers = input.split(delimeter);
+        int sum = 0;
+        for(String number : numbers) {
+            sum += Integer.parseInt(number);
+        }
+        System.out.println("결과 : " + sum);
     }
 }
